@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBCToolLPSwap", "BBCToolLPSwap\BBCToolLPSwap.csproj", "{EF8E4C59-FFD0-43DF-98F7-9A3C7C354D3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{BDED74F0-289B-469C-8FA6-7838D56C1410}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF8E4C59-FFD0-43DF-98F7-9A3C7C354D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF8E4C59-FFD0-43DF-98F7-9A3C7C354D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF8E4C59-FFD0-43DF-98F7-9A3C7C354D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF8E4C59-FFD0-43DF-98F7-9A3C7C354D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38FE61B2-A9A5-4B50-A28F-E8D7F34DACD4}
+	EndGlobalSection
+EndGlobal

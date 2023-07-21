@@ -1,0 +1,123 @@
+﻿<Window x:Class="BBCToolLPSwap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BBCToolLPSwap"
+        mc:Ignorable="d"
+        Title="Uniswap-LP管理及Swap" Height="650" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl>
+            <TabItem Header="基础信息" Height="21" Margin="-2,-2,-2,0" VerticalAlignment="Top">
+                <Grid Background="#FFE5E5E5" Margin="2,0,-2,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="65*"/>
+                        <ColumnDefinition Width="697*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="RpcURL:" HorizontalAlignment="Left" Margin="8,11,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <TextBox Name="textBoxUrl" Text="https://data-seed-prebsc-1-s2.binance.org:8545/" HorizontalAlignment="Left" Margin="4,16,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="314" Grid.Column="2"/>
+                    <Label Content="NetworkID:" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+                    <TextBox Name="textBoxNetworkId" HorizontalAlignment="Left" Margin="4,44,0,0" TextWrapping="Wrap" Text="97" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+                    <Label HorizontalAlignment="Left" Margin="42,92,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <TextBox Name="textBoxRouter" HorizontalAlignment="Left" Margin="4,73,0,0" TextWrapping="Wrap" Text="0xD99D1c33F9fC3444f8101754aBC46c52416550D1" VerticalAlignment="Top" Width="314" Grid.Column="2"/>
+                    <Label Grid.Column="1" Content="路由地址:" HorizontalAlignment="Right" Margin="0,69,696,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <Label Grid.Column="1" Content="Factory:" HorizontalAlignment="Left" Margin="11,96,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox Name="textBoxFactory" Grid.Column="2" HorizontalAlignment="Left" Margin="6,102,0,0" TextWrapping="Wrap" Text="0x6725F303b657a9451d8BA641348b6761A6CC7a17" VerticalAlignment="Top" Width="312"/>
+                    <Label Grid.Column="1" Content="GasPrice:" HorizontalAlignment="Left" Margin="3,124,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox Name="textBoxGasPrice" Grid.Column="2" HorizontalAlignment="Left" Margin="7,129,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120"/>
+                    <Label Grid.Column="1" Content="GasLimt:" HorizontalAlignment="Left" Margin="11,154,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox Name="textBoxGasLimit" Grid.Column="2" HorizontalAlignment="Left" Margin="8,160,0,0" TextWrapping="Wrap" Text="9200000" VerticalAlignment="Top" Width="120"/>
+                    <Label Grid.Column="0" Grid.ColumnSpan="2"  Content="更多资料：" Foreground="Red" HorizontalContentAlignment="Right" FontSize="14" VerticalAlignment="Center" Margin="0,321,0,0"></Label>
+                    <TextBlock Grid.Column="2" Grid.ColumnSpan="4" Text="www.bbctool.com" Cursor="Hand" TextDecorations="Underline" Foreground="Blue" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Margin="1,321,0,0" VerticalAlignment="Center" MouseUp="MoreResources_MouseUp"/>
+                </Grid>
+            </TabItem>
+            <!--<TabItem Header="V2Swap" Margin="67,-2,-71,0">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>-->
+            <TabItem HorizontalAlignment="Left" Header="V2LP管理及Swap" Width="112" Margin="6,-1,0,0" Height="21" VerticalAlignment="Top">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="107*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="682*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Token0:" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="textBoxToken0" HorizontalAlignment="Left" Margin="87,62,0,0" TextWrapping="Wrap" Text="0x9b9d621658b2e0800501b195619d6b29cacf6c56" VerticalAlignment="Top" Width="394" Grid.ColumnSpan="3"/>
+                    <Label Content="Token1:" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="textBoxToken1" HorizontalAlignment="Left" Margin="87,90,0,0" TextWrapping="Wrap" Text="0xDa77DF4fE66449B0CFef77f6c539AAc0875bC634" VerticalAlignment="Top" Width="394" Grid.ColumnSpan="3"/>
+                    <Label Content="LP地址:" HorizontalAlignment="Center" Margin="0,111,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="textBoxLP" HorizontalAlignment="Left" Margin="87,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="394" Grid.ColumnSpan="3"/>
+                    <Label Content="私钥:" HorizontalAlignment="Left" Margin="43,31,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="textBoxPrivateKey" HorizontalAlignment="Left" Margin="88,35,0,0" TextWrapping="Wrap" Text="0x57ff0d6bfe9fbf189a65d950c56ed704e0e240bd37d02ce18bd884258b4df3f0" VerticalAlignment="Top" Width="510" Grid.ColumnSpan="3"/>
+                    <Button Grid.Column="2" Content="查看LP" HorizontalAlignment="Left" Margin="381,117,0,0" VerticalAlignment="Top" Click="GetPair_Click"/>
+                    <Button Grid.Column="2" Content="创建LP" HorizontalAlignment="Left" Margin="435,117,0,0" VerticalAlignment="Top" Click="CreatePair_Click"/>
+                    <Label Content="地址:" HorizontalAlignment="Left" Margin="42,6,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="textBoxAccountAddress" HorizontalAlignment="Left" Margin="88,7,0,0" TextWrapping="Wrap" Text="0x3E3F93fd7D210f394dbf032FD63A681370D4D8F0" VerticalAlignment="Top" Width="393" Grid.ColumnSpan="3"/>
+                    <GroupBox Header="LP添加" Grid.ColumnSpan="3" Margin="0,206,4,321">
+                        <Grid>
+                            <Label Name="dd" Content="Token0数量:" HorizontalAlignment="Left" Margin="14,0,0,0" VerticalAlignment="Center"  Width="114"/>
+                            <Label Name="cc" Content="Token1数量:" HorizontalAlignment="Left" Margin="249,0,0,0" VerticalAlignment="Center" Width="106" />
+                            <TextBox Name="textBoxToken0AddAmount"  HorizontalAlignment="Left" Margin="99,0,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Center"  Width="120"/>
+                            <TextBox Name="textBoxToken1AddAmount"  HorizontalAlignment="Left" Margin="356,0,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Center"  Width="120"/>
+
+                            <Button Content="LP添加" HorizontalAlignment="Left" Margin="642,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.513,1.95" Click="AddLP_Click"/>
+                        </Grid>
+
+                    </GroupBox>
+                    <Label Content="Token0Decimals:" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="113"/>
+                    <Label Content="Token1Decimals:" HorizontalAlignment="Left" Margin="245,143,0,0" VerticalAlignment="Top" Width="106" Grid.Column="2"/>
+                    <TextBox Name="textBoxToken0Decimals" Grid.Column="2" HorizontalAlignment="Left" Margin="5,149,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="textBoxToken1Decimals" Grid.Column="2" HorizontalAlignment="Left" Margin="352,147,0,0" TextWrapping="Wrap" Text="18" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="LP数量:" HorizontalAlignment="Left" Margin="66,180,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="54"/>
+                    <TextBox Name="textBoxLPBalance" Grid.Column="2" HorizontalAlignment="Left" Margin="7,185,0,0" TextWrapping="Wrap" Text="-1" VerticalAlignment="Top" Width="222"/>
+                    <Button Grid.Column="2" Content="查看LP数量" HorizontalAlignment="Left" Margin="239,184,0,0" VerticalAlignment="Top" Click="GetLPBalance_Click"/>
+                    <GroupBox Header="LP撤出" Grid.ColumnSpan="3" Margin="0,385,3,142">
+                        <Grid>
+                            <Label Content="LP撤出数量:" HorizontalAlignment="Left" Margin="14,0,0,0" VerticalAlignment="Center"  Width="114"/>
+
+                            <TextBox x:Name="textBoxLPRemoveAmount"  HorizontalAlignment="Left" Margin="99,0,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Center"  Width="120"/>
+
+                            <Button Content="LP撤出" HorizontalAlignment="Left" Margin="642,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.513,1.95" Click="RemoveLP_Click"/>
+                        </Grid>
+
+                    </GroupBox>
+                    <TextBox Name="textBoxLPResult" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="17,550,0,0" TextWrapping="Wrap" Text="结果......" VerticalAlignment="Top" Width="687" Height="51"/>
+                    <GroupBox Header="Swap" Grid.ColumnSpan="3" Margin="1,466,2,61">
+                        <Grid Margin="0,0,-25,0">
+                            <Label Content="Token0:" HorizontalAlignment="Left" Margin="14,0,0,0" VerticalAlignment="Center"  Width="72"/>
+
+                            <TextBox x:Name="textBoxSwapToken0Amount"  HorizontalAlignment="Left" Margin="99,0,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Center"  Width="120"/>
+
+                            <Button Content="卖出" HorizontalAlignment="Left" Margin="231,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.513,1.95" Click="SwapSell_Click"/>
+                            <Label Content="Token1:" HorizontalAlignment="Left" Margin="287,0,0,0" VerticalAlignment="Center"  Width="72"/>
+                            <TextBox x:Name="textBoxSwapToken1Amount"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="1" VerticalAlignment="Center"  Width="120" Margin="345,0,0,0"/>
+                            <Button Content="买入" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.513,1.95" Click="SwapBuy_Click" Margin="473,0,0,0"/>
+                            <TextBox x:Name="textBoxSwapSlippage"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="15" VerticalAlignment="Center"  Width="120" Margin="584,0,0,0"/>
+                            <Label Content="滑点:" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="42" Margin="544,0,0,0"/>
+                        </Grid>
+
+                    </GroupBox>
+                    <GroupBox Header="池子深度及价格" Grid.ColumnSpan="3" Margin="0,295,1,232">
+                        <Grid>
+                            <Label Content="ReserA:" HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Center"  Width="50"/>
+
+                            <TextBox x:Name="textBoxReserveA"  HorizontalAlignment="Left" Margin="60,0,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Center"  Width="120"/>
+
+                            <Button Content="获取" HorizontalAlignment="Left" Margin="729,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.513,1.95" Click="GetReserve_Click"/>
+                            <Label Content="ReserB:" HorizontalAlignment="Left" Margin="184,0,0,0" VerticalAlignment="Center"  Width="50"/>
+                            <TextBox x:Name="textBoxReserveB"  HorizontalAlignment="Left" Margin="237,0,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Center"  Width="120"/>
+                            <Label Content="PriceB:" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="50" Margin="554,0,0,0"/>
+                            <TextBox x:Name="textBoxPriceA"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="100" VerticalAlignment="Center"  Width="120" Margin="427,0,0,0"/>
+                            <Label Content="PriceA:" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="50" Margin="379,0,0,0"/>
+                            <TextBox x:Name="textBoxPriceB"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="100" VerticalAlignment="Center"  Width="120" Margin="604,0,0,0"/>
+                        </Grid>
+
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
