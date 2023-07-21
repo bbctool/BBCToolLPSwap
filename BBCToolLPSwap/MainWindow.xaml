@@ -49,7 +49,7 @@
                     <Label Content="LP地址:" HorizontalAlignment="Center" Margin="0,111,0,0" VerticalAlignment="Top"/>
                     <TextBox Name="textBoxLP" HorizontalAlignment="Left" Margin="87,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="394" Grid.ColumnSpan="3"/>
                     <Label Content="私钥:" HorizontalAlignment="Left" Margin="43,31,0,0" VerticalAlignment="Top"/>
-                    <TextBox Name="textBoxPrivateKey" HorizontalAlignment="Left" Margin="88,35,0,0" TextWrapping="Wrap" Text="0x57ff0d6bfe9fbf189a65d950c56ed704e0e240bd37d02ce18bd884258b4df3f0" VerticalAlignment="Top" Width="510" Grid.ColumnSpan="3"/>
+                    <TextBox Name="textBoxPrivateKey" HorizontalAlignment="Left" Margin="88,35,0,0" TextWrapping="Wrap" Text="****" VerticalAlignment="Top" Width="510" Grid.ColumnSpan="3"/>
                     <Button Grid.Column="2" Content="查看LP" HorizontalAlignment="Left" Margin="381,117,0,0" VerticalAlignment="Top" Click="GetPair_Click"/>
                     <Button Grid.Column="2" Content="创建LP" HorizontalAlignment="Left" Margin="435,117,0,0" VerticalAlignment="Top" Click="CreatePair_Click"/>
                     <Label Content="地址:" HorizontalAlignment="Left" Margin="42,6,0,0" VerticalAlignment="Top"/>
